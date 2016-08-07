@@ -10,6 +10,8 @@ define("port", default=9000, help="Port to run the server on")
 
 _CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 MODEL_DIR = os.path.join(_CUR_DIR, "..", "models")
+LOG_DIR = os.path.join(_CUR_DIR, "..", "logs")
+
 MAX_THREAD_POOL = 10
 
 LOG_SETTINGS = {
@@ -36,7 +38,7 @@ LOG_SETTINGS = {
             "class": "logging.handlers.TimedRotatingFileHandler",
             'level': "INFO",
             'formatter': "json",
-            'filename': "logs/app.log",
+            'filename': os.path.join(LOG_DIR, "app.log"),
             "when": "D",
             "interval": 2,
             "backupCount": 5
@@ -45,7 +47,7 @@ LOG_SETTINGS = {
             "class": "logging.handlers.TimedRotatingFileHandler",
             'level': "INFO",
             'formatter': "json",
-            'filename': "logs/access.log",
+            'filename': os.path.join(LOG_DIR, "access.log"),
             "when": "D",
             "interval": 2,
             "backupCount": 5

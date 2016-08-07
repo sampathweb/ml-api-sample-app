@@ -24,7 +24,7 @@ def main():
     # Get the Port and Debug mode from command line options or default in settings.py
     options.parse_command_line()
 
-    logging.config.dictConfig(LOG_SETTINGS)
+    # logging.config.dictConfig(LOG_SETTINGS)
     logger = logging.getLogger("app")
 
     # Load ML Models
